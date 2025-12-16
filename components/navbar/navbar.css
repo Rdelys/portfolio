@@ -1,16 +1,11 @@
-/* ==========================
-   ROOT PREMIUM VARIABLES
-========================== */
 :root {
-    --glass-bg: rgba(255, 255, 255, 0.08);
-    --glass-border: rgba(255, 255, 255, 0.18);
-    --accent: #00f0ff;
-    --text-main: rgba(255, 255, 255, 0.85);
+    --accent: #2a43bf;
+    --bg-glass: rgba(255,255,255,0.08);
+    --border-glass: rgba(255,255,255,0.2);
+    --text: rgba(255,255,255,0.9);
 }
 
-/* ==========================
-   NAVBAR CONTAINER
-========================== */
+/* ================= NAVBAR ================= */
 .navbar {
     position: fixed;
     top: 16px;
@@ -18,109 +13,56 @@
     transform: translateX(-50%);
     width: min(92%, 1200px);
     height: 72px;
-
-    background: linear-gradient(
-        135deg,
-        rgba(255,255,255,0.12),
-        rgba(255,255,255,0.03)
-    );
-
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-
-    border-radius: 24px;
-    border: 1px solid var(--glass-border);
+    padding: 0 36px;
 
     display: flex;
     align-items: center;
     justify-content: space-between;
 
-    padding: 0 36px;
+    background: linear-gradient(135deg, rgba(255,255,255,0.12), rgba(255,255,255,0.02));
+    backdrop-filter: blur(18px);
+    border-radius: 26px;
+    border: 1px solid var(--border-glass);
+
+    box-shadow: 0 25px 50px rgba(0,0,0,0.3);
     z-index: 1000;
-
-    box-shadow:
-        0 20px 40px rgba(0,0,0,0.25),
-        inset 0 1px 0 rgba(255,255,255,0.2);
-
-    transition: all 0.4s cubic-bezier(.4,0,.2,1);
+    transition: all 0.4s ease;
 }
 
-/* ==========================
-   LOGO
-========================== */
-.logo i {
-    font-size: 28px;
-    color: var(--text-main);
-    transition: transform 0.4s ease, color 0.4s ease;
+/* LOGO */
+.logo img {
+    height: 48px;
+    transition: transform 0.4s ease;
+}
+.logo:hover img {
+    transform: scale(1.1) rotate(-4deg);
 }
 
-.logo:hover i {
-    transform: rotate(-8deg) scale(1.1);
-    color: var(--accent);
-}
-
-/* ==========================
-   MENU
-========================== */
+/* ================= MENU ================= */
 .menu {
     display: flex;
     gap: 42px;
     list-style: none;
 }
 
-/* LINK BASE */
-.menu a,
-.mail-btn {
-    position: relative;
+.menu a {
     display: flex;
     align-items: center;
-    gap: 12px;
-
-    color: var(--text-main);
+    gap: 10px;
+    color: var(--text);
     text-decoration: none;
-    font-size: 18px;
-
-    text-transform: uppercase;
-    font-weight: 500;
+    font-size: 14px;
     letter-spacing: 2px;
-
-    transition: all 0.35s cubic-bezier(.4,0,.2,1);
+    text-transform: uppercase;
+    position: relative;
+    transition: all 0.3s ease;
 }
 
-/* ICON */
-.menu i,
-.mail-btn i {
-    font-size: 20px;
-    transition: transform 0.4s ease, color 0.4s ease;
-}
-
-/* ==========================
-   TEXT REVEAL (PREMIUM)
-========================== */
-.menu span,
-.mail-btn span {
-    opacity: 0;
-    transform: translateX(-6px);
-    transition: all 0.35s cubic-bezier(.4,0,.2,1);
-    font-size: 13px;
-}
-
-/* ==========================
-   HOVER MICRO-INTERACTIONS
-========================== */
-.menu a:hover i,
-.mail-btn:hover i {
+.menu i {
+    font-size: 18px;
     color: var(--accent);
-    transform: translateY(-2px) scale(1.1);
 }
 
-.menu a:hover span,
-.mail-btn:hover span {
-    opacity: 1;
-    transform: translateX(0);
-}
-
-/* Glow underline */
 .menu a::after {
     content: "";
     position: absolute;
@@ -130,61 +72,89 @@
     height: 2px;
     background: linear-gradient(90deg, transparent, var(--accent), transparent);
     transform: translateX(-50%);
-    transition: width 0.4s ease;
+    transition: width 0.3s ease;
 }
 
 .menu a:hover::after {
     width: 100%;
 }
 
-/* ==========================
-   MAIL BUTTON
-========================== */
+/* ================= MAIL BUTTON ================= */
 .mail-btn {
-    padding: 12px 20px;
-    border-radius: 14px;
-    background: rgba(255,255,255,0.12);
-    border: 1px solid rgba(255,255,255,0.2);
+    padding: 12px 22px;
+    border-radius: 16px;
+    background: rgba(255,255,255,0.15);
+    border: 1px solid var(--border-glass);
+
+    display: flex;
+    gap: 10px;
+    align-items: center;
+
+    color: white;
+    text-decoration: none;
+    letter-spacing: 2px;
+    transition: all 0.3s ease;
 }
 
 .mail-btn:hover {
-    box-shadow: 0 0 25px rgba(0,240,255,0.4);
+    box-shadow: 0 0 30px rgba(0,240,255,0.6);
+    transform: translateY(-2px);
 }
 
-/* ==========================
-   SCROLL EFFECT (JS)
-========================== */
-.navbar.scrolled {
-    height: 64px;
-    background: rgba(10,10,10,0.75);
+/* ================= BURGER ================= */
+.burger {
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+    cursor: pointer;
+}
+
+.burger span {
+    width: 26px;
+    height: 2px;
+    background: white;
+    transition: all 0.3s ease;
+}
+
+/* ================= MOBILE MENU ================= */
+.mobile-menu {
+    position: fixed;
+    top: 100px;
+    left: 50%;
+    transform: translateX(-50%) scale(0.95);
+    width: 90%;
+    background: rgba(10,10,20,0.85);
     backdrop-filter: blur(20px);
+    border-radius: 20px;
+    padding: 24px;
+    display: none;
+    flex-direction: column;
+    gap: 18px;
+    z-index: 999;
 }
 
-/* ==========================
-   RESPONSIVE
-========================== */
-@media (max-width: 900px) {
-    .menu {
-        gap: 28px;
-    }
+.mobile-menu a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    display: flex;
+    gap: 12px;
+}
 
-    .menu span,
-    .mail-btn span {
+/* ================= SCROLL ================= */
+.navbar.scrolled {
+    background: rgba(5,5,10,0.85);
+    height: 64px;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 900px) {
+    .menu,
+    .mail-btn {
         display: none;
     }
-}
 
-@media (max-width: 600px) {
-    .navbar {
-        padding: 0 24px;
-    }
-
-    .menu {
-        gap: 22px;
-    }
-
-    .menu i,
-    .mail-btn i {
-        font-size: 22px;
+    .burger {
+        display: flex;
     }
 }
