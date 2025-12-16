@@ -1,32 +1,190 @@
+/* ==========================
+   ROOT PREMIUM VARIABLES
+========================== */
+:root {
+    --glass-bg: rgba(255, 255, 255, 0.08);
+    --glass-border: rgba(255, 255, 255, 0.18);
+    --accent: #00f0ff;
+    --text-main: rgba(255, 255, 255, 0.85);
+}
+
+/* ==========================
+   NAVBAR CONTAINER
+========================== */
 .navbar {
     position: fixed;
-    top: 0;
-    width: 100%;
-    height: 60px;
-    background: #111;
-    color: white;
+    top: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(92%, 1200px);
+    height: 72px;
+
+    background: linear-gradient(
+        135deg,
+        rgba(255,255,255,0.12),
+        rgba(255,255,255,0.03)
+    );
+
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+
+    border-radius: 24px;
+    border: 1px solid var(--glass-border);
+
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 40px;
+
+    padding: 0 36px;
     z-index: 1000;
+
+    box-shadow:
+        0 20px 40px rgba(0,0,0,0.25),
+        inset 0 1px 0 rgba(255,255,255,0.2);
+
+    transition: all 0.4s cubic-bezier(.4,0,.2,1);
 }
 
+/* ==========================
+   LOGO
+========================== */
+.logo i {
+    font-size: 28px;
+    color: var(--text-main);
+    transition: transform 0.4s ease, color 0.4s ease;
+}
+
+.logo:hover i {
+    transform: rotate(-8deg) scale(1.1);
+    color: var(--accent);
+}
+
+/* ==========================
+   MENU
+========================== */
 .menu {
     display: flex;
-    gap: 30px;
+    gap: 42px;
     list-style: none;
 }
 
-.menu a {
-    color: white;
+/* LINK BASE */
+.menu a,
+.mail-btn {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    color: var(--text-main);
     text-decoration: none;
+    font-size: 18px;
+
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: 2px;
+
+    transition: all 0.35s cubic-bezier(.4,0,.2,1);
 }
 
+/* ICON */
+.menu i,
+.mail-btn i {
+    font-size: 20px;
+    transition: transform 0.4s ease, color 0.4s ease;
+}
+
+/* ==========================
+   TEXT REVEAL (PREMIUM)
+========================== */
+.menu span,
+.mail-btn span {
+    opacity: 0;
+    transform: translateX(-6px);
+    transition: all 0.35s cubic-bezier(.4,0,.2,1);
+    font-size: 13px;
+}
+
+/* ==========================
+   HOVER MICRO-INTERACTIONS
+========================== */
+.menu a:hover i,
+.mail-btn:hover i {
+    color: var(--accent);
+    transform: translateY(-2px) scale(1.1);
+}
+
+.menu a:hover span,
+.mail-btn:hover span {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Glow underline */
+.menu a::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--accent), transparent);
+    transform: translateX(-50%);
+    transition: width 0.4s ease;
+}
+
+.menu a:hover::after {
+    width: 100%;
+}
+
+/* ==========================
+   MAIL BUTTON
+========================== */
 .mail-btn {
-    background: #fff;
-    color: #111;
-    padding: 8px 15px;
-    border-radius: 5px;
-    text-decoration: none;
+    padding: 12px 20px;
+    border-radius: 14px;
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+.mail-btn:hover {
+    box-shadow: 0 0 25px rgba(0,240,255,0.4);
+}
+
+/* ==========================
+   SCROLL EFFECT (JS)
+========================== */
+.navbar.scrolled {
+    height: 64px;
+    background: rgba(10,10,10,0.75);
+    backdrop-filter: blur(20px);
+}
+
+/* ==========================
+   RESPONSIVE
+========================== */
+@media (max-width: 900px) {
+    .menu {
+        gap: 28px;
+    }
+
+    .menu span,
+    .mail-btn span {
+        display: none;
+    }
+}
+
+@media (max-width: 600px) {
+    .navbar {
+        padding: 0 24px;
+    }
+
+    .menu {
+        gap: 22px;
+    }
+
+    .menu i,
+    .mail-btn i {
+        font-size: 22px;
+    }
 }
