@@ -8,6 +8,7 @@ function loadComponent(id, path) {
 
 loadComponent("navbar", "components/navbar/navbar.html");
 loadComponent("hero", "components/hero/hero.html");
+loadComponent("services", "components/services/services.html");
 loadComponent("tecno", "components/tecno/tecno.html");
 loadComponent("projet", "components/projet/projet.html");
 loadComponent("footer", "components/footer/footer.html");
