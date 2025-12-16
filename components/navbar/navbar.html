@@ -1,35 +1,40 @@
 <link rel="stylesheet" href="components/navbar/navbar.css">
 
 <nav class="navbar">
+    <!-- LOGO -->
     <div class="logo">
-        <img src="/images/logo.png" height="50px">
+        <img src="images/logo.png" alt="Logo">
     </div>
 
+    <!-- DESKTOP MENU -->
     <ul class="menu">
-        <li>
-            <a href="#">
-                <i class="fa-solid fa-house"></i>
-                <span>Accueil</span>
-            </a>
-        </li>
-        <li>
-            <a href="#tecno">
-                <i class="fa-solid fa-microchip"></i>
-                <span>Tecno</span>
-            </a>
-        </li>
-        <li>
-            <a href="#projet">
-                <i class="fa-solid fa-folder-open"></i>
-                <span>Projet</span>
-            </a>
-        </li>
+        <li><a href="#"><i class="fa-solid fa-house"></i><span>Accueil</span></a></li>
+        <li><a href="#tecno"><i class="fa-solid fa-microchip"></i><span>Tecno</span></a></li>
+        <li><a href="#projet"><i class="fa-solid fa-folder-open"></i><span>Projet</span></a></li>
+        <li><a href="#services"><i class="fa-solid fa-layer-group"></i><span>Services</span></a></li>
     </ul>
 
-    <a href="mailto:contact@mail.com" class="mail-btn">
+    <!-- ACTION -->
+    <a href="mailto:rdauphinelys@mail.com" class="mail-btn">
         <i class="fa-solid fa-paper-plane"></i>
-        <span>Send Mail</span>
+        <span>Contact</span>
     </a>
+
+    <!-- BURGER (MOBILE) -->
+    <div class="burger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
 </nav>
+
+<!-- MOBILE DROPDOWN -->
+<div class="mobile-menu">
+    <a href="#"><i class="fa-solid fa-house"></i> Accueil</a>
+    <a href="#tecno"><i class="fa-solid fa-microchip"></i> Tecno</a>
+    <a href="#projet"><i class="fa-solid fa-folder-open"></i> Projet</a>
+    <a href="#services"><i class="fa-solid fa-layer-group"></i> Services</a>
+    <a href="mailto:contact@mail.com"><i class="fa-solid fa-paper-plane"></i> Contact</a>
+</div>
 
 <script src="components/navbar/navbar.js"></script>
