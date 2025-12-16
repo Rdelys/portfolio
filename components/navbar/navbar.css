@@ -1,0 +1,32 @@
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 60px;
+    background: #111;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+    z-index: 1000;
+}
+
+.menu {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+}
+
+.menu a {
+    color: white;
+    text-decoration: none;
+}
+
+.mail-btn {
+    background: #fff;
+    color: #111;
+    padding: 8px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+}
