@@ -1,12 +1,40 @@
-const navbar = document.querySelector(".navbar");
-const burger = document.querySelector(".burger");
-const mobileMenu = document.querySelector(".mobile-menu");
+function initNavbar() {
+    console.log('=== NAVBAR INIT ===');
+    const hamburger = document.getElementById('mobileToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileOverlay = document.getElementById('mobileOverlay');
+    const mobileClose = document.getElementById('mobileClose');
 
-window.addEventListener("scroll", () => {
-    navbar.classList.toggle("scrolled", window.scrollY > 40);
-});
+    if (!hamburger || !mobileMenu || !mobileOverlay) {
+        console.error('Navbar: éléments manquants après injection');
+        return;
+    }
 
-burger.addEventListener("click", () => {
-    mobileMenu.style.display =
-        mobileMenu.style.display === "flex" ? "none" : "flex";
-});
+    const openMenu = () => {
+        mobileMenu.classList.add('active');
+        mobileOverlay.classList.add('active');
+        hamburger.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    };
+
+    const closeMenu = () => {
+        mobileMenu.classList.remove('active');
+        mobileOverlay.classList.remove('active');
+        hamburger.classList.remove('active');
+        document.body.style.overflow = '';
+    };
+
+    hamburger.addEventListener('click', openMenu);
+    mobileOverlay.addEventListener('click', closeMenu);
+
+    if (mobileClose) {
+        mobileClose.addEventListener('click', closeMenu);
+    }
+
+    document.querySelectorAll('.mobile-nav-link')
+        .forEach(link => link.addEventListener('click', closeMenu));
+
+    console.log('Navbar mobile fonctionnelle');
+}
+
+window.initNavbar = initNavbar;
