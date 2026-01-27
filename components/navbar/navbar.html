@@ -1,163 +1,178 @@
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-<nav class="navbar-devart">
-    <!-- LOGO COMPACT -->
-    <div class="logo-compact">
-        <div class="logo-minimal">
-            <div class="logo-cube">
-                <div class="cube-face front">
-                    <i class="fa-solid fa-code"></i>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DEVART - Navbar Tech</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="navbar.css">
+</head>
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar-devart">
+        <!-- LOGO -->
+        <div class="logo-compact">
+            <a href="#" class="logo-minimal" aria-label="DEVART - Retour à l'accueil">
+                <div class="logo-cube">
+                    <div class="cube-face front">
+                        <i class="fa-solid fa-code" aria-hidden="true"></i>
+                    </div>
+                    <div class="cube-face back"></div>
+                    <div class="cube-face right"></div>
+                    <div class="cube-face left"></div>
+                    <div class="cube-face top"></div>
+                    <div class="cube-face bottom"></div>
                 </div>
-                <div class="cube-face back"></div>
-                <div class="cube-face top"></div>
-            </div>
-            <div class="logo-text-compact">
-                <span class="logo-main">DEVART</span>
-                <span class="logo-dot">.</span>
-            </div>
-            <div class="logo-aura"></div>
+                <div class="logo-text-compact">
+                    <span class="logo-main">DEVART</span>
+                    <span class="logo-dot" aria-hidden="true">.</span>
+                </div>
+                <div class="logo-particles"></div>
+            </a>
         </div>
-    </div>
 
-    <!-- MENU COMPACT (DESKTOP) -->
-    <div class="nav-menu-compact">
-        <ul class="compact-menu">
-            <li class="compact-item">
-                <a href="#" class="compact-link">
-                    <div class="link-indicator"></div>
-                    <i class="fa-solid fa-house"></i>
-                    <span class="link-text">Accueil</span>
-                    <div class="link-hover"></div>
-                </a>
-            </li>
-            <li class="compact-item">
-                <a href="#tecno" class="compact-link">
-                    <div class="link-indicator"></div>
-                    <i class="fa-solid fa-microchip"></i>
-                    <span class="link-text">Tecno</span>
-                    <div class="link-hover"></div>
-                </a>
-            </li>
-            <li class="compact-item">
-                <a href="#projet" class="compact-link">
-                    <div class="link-indicator"></div>
-                    <i class="fa-solid fa-folder-open"></i>
-                    <span class="link-text">Projet</span>
-                    <div class="link-hover"></div>
-                </a>
-            </li>
-            <li class="compact-item">
-                <a href="#services" class="compact-link">
-                    <div class="link-indicator"></div>
-                    <i class="fa-solid fa-layer-group"></i>
-                    <span class="link-text">Services</span>
-                    <div class="link-hover"></div>
-                </a>
-            </li>
-        </ul>
-    </div>
+        <!-- MENU DESKTOP -->
+        <div class="nav-menu-compact" role="navigation" aria-label="Menu principal">
+            <ul class="compact-menu">
+                <li class="compact-item">
+                    <a href="#accueil" class="compact-link active" aria-current="page">
+                        <div class="link-indicator" aria-hidden="true"></div>
+                        <i class="fa-solid fa-house" aria-hidden="true"></i>
+                        <span class="link-text">Accueil</span>
+                        <div class="link-hover" aria-hidden="true"></div>
+                        <div class="link-border" aria-hidden="true"></div>
+                    </a>
+                </li>
+                <li class="compact-item">
+                    <a href="#tecno" class="compact-link">
+                        <div class="link-indicator" aria-hidden="true"></div>
+                        <i class="fa-solid fa-microchip" aria-hidden="true"></i>
+                        <span class="link-text">Tecno</span>
+                        <div class="link-hover" aria-hidden="true"></div>
+                        <div class="link-border" aria-hidden="true"></div>
+                    </a>
+                </li>
+                <li class="compact-item">
+                    <a href="#projet" class="compact-link">
+                        <div class="link-indicator" aria-hidden="true"></div>
+                        <i class="fa-solid fa-folder-open" aria-hidden="true"></i>
+                        <span class="link-text">Projet</span>
+                        <div class="link-hover" aria-hidden="true"></div>
+                        <div class="link-border" aria-hidden="true"></div>
+                    </a>
+                </li>
+                <li class="compact-item">
+                    <a href="#services" class="compact-link">
+                        <div class="link-indicator" aria-hidden="true"></div>
+                        <i class="fa-solid fa-layer-group" aria-hidden="true"></i>
+                        <span class="link-text">Services</span>
+                        <div class="link-hover" aria-hidden="true"></div>
+                        <div class="link-border" aria-hidden="true"></div>
+                    </a>
+                </li>
+            </ul>
+        </div>
 
-    <!-- ACTION COMPACT -->
-    <div class="nav-action-compact">
-        <a href="mailto:rdauphinelys@mail.com" class="contact-mini">
-            <div class="mini-icon">
-                <i class="fa-solid fa-paper-plane"></i>
-                <div class="mini-ring"></div>
-            </div>
-            <span class="mini-text">Contact</span>
-            <div class="mini-sparkle"></div>
-        </a>
-        
-        <!-- BURGER POUR MOBILE -->
-        <button class="hamburger-modern" id="mobileToggle">
-            <div class="hamburger-inner">
-                <span class="line l1"></span>
-                <span class="line l2"></span>
-                <span class="line l3"></span>
-            </div>
-            <div class="hamburger-glow"></div>
-        </button>
-    </div>
-
-    <!-- MENU MOBILE (CACHÉ PAR DÉFAUT) -->
-    <div class="mobile-nav-compact" id="mobileMenu">
-        <div class="mobile-nav-header">
-            <div class="mobile-logo-compact">
-                <div class="mobile-cube">
-                    <i class="fa-solid fa-code"></i>
+        <!-- ACTIONS -->
+        <div class="nav-action-compact">
+            <a href="mailto:rdauphinelys@mail.com" class="contact-mini" aria-label="Contact par email">
+                <div class="mini-icon" aria-hidden="true">
+                    <i class="fa-solid fa-paper-plane"></i>
+                    <div class="mini-ring"></div>
                 </div>
-                <span>DEVART</span>
-            </div>
-            <button class="mobile-close-btn" id="mobileClose">
-                <i class="fa-solid fa-xmark"></i>
+                <span class="mini-text">Contact</span>
+                <div class="mini-sparkle" aria-hidden="true"></div>
+            </a>
+            
+            <button class="hamburger-modern" id="mobileToggle" aria-label="Ouvrir le menu mobile" aria-expanded="false" aria-controls="mobileMenu">
+                <div class="hamburger-inner">
+                    <span class="line l1" aria-hidden="true"></span>
+                    <span class="line l2" aria-hidden="true"></span>
+                    <span class="line l3" aria-hidden="true"></span>
+                </div>
             </button>
         </div>
+
+        <!-- MENU MOBILE -->
+        <div class="mobile-overlay" id="mobileOverlay" aria-hidden="true"></div>
         
-        <div class="mobile-nav-body">
-            <div class="mobile-nav-links">
-                <a href="#" class="mobile-nav-link">
-                    <div class="mobile-link-icon">
-                        <i class="fa-solid fa-house"></i>
+        <div class="mobile-nav-compact" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Menu mobile" aria-hidden="true">
+            <div class="mobile-nav-header">
+                <div class="mobile-logo-compact">
+                    <div class="mobile-cube" aria-hidden="true">
+                        <i class="fa-solid fa-code"></i>
                     </div>
-                    <span>Accueil</span>
-                    <div class="mobile-link-arrow">
-                        <i class="fa-solid fa-arrow-right"></i>
-                    </div>
-                </a>
-                <a href="#tecno" class="mobile-nav-link">
-                    <div class="mobile-link-icon">
-                        <i class="fa-solid fa-microchip"></i>
-                    </div>
-                    <span>Tecno</span>
-                    <div class="mobile-link-arrow">
-                        <i class="fa-solid fa-arrow-right"></i>
-                    </div>
-                </a>
-                <a href="#projet" class="mobile-nav-link">
-                    <div class="mobile-link-icon">
-                        <i class="fa-solid fa-folder-open"></i>
-                    </div>
-                    <span>Projet</span>
-                    <div class="mobile-link-arrow">
-                        <i class="fa-solid fa-arrow-right"></i>
-                    </div>
-                </a>
-                <a href="#services" class="mobile-nav-link">
-                    <div class="mobile-link-icon">
-                        <i class="fa-solid fa-layer-group"></i>
-                    </div>
-                    <span>Services</span>
-                    <div class="mobile-link-arrow">
-                        <i class="fa-solid fa-arrow-right"></i>
-                    </div>
-                </a>
+                    <span>DEVART</span>
+                </div>
+                <button class="mobile-close-btn" id="mobileClose" aria-label="Fermer le menu">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
             </div>
             
-            <div class="mobile-action-compact">
-                <a href="mailto:rdauphinelys@mail.com" class="mobile-contact-btn">
-                    <div class="mobile-btn-icon">
-                        <i class="fa-solid fa-paper-plane"></i>
-                        <div class="mobile-btn-glow"></div>
-                    </div>
-                    <span>Contact Rapide</span>
-                </a>
+            <div class="mobile-nav-body">
+                <nav class="mobile-nav-links" role="navigation" aria-label="Navigation mobile">
+                    <a href="#accueil" class="mobile-nav-link active" aria-current="page">
+                        <div class="mobile-link-icon" aria-hidden="true">
+                            <i class="fa-solid fa-house"></i>
+                        </div>
+                        <span>Accueil</span>
+                        <div class="mobile-link-arrow" aria-hidden="true">
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </div>
+                    </a>
+                    <a href="#tecno" class="mobile-nav-link">
+                        <div class="mobile-link-icon" aria-hidden="true">
+                            <i class="fa-solid fa-microchip"></i>
+                        </div>
+                        <span>Tecno</span>
+                        <div class="mobile-link-arrow" aria-hidden="true">
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </div>
+                    </a>
+                    <a href="#projet" class="mobile-nav-link">
+                        <div class="mobile-link-icon" aria-hidden="true">
+                            <i class="fa-solid fa-folder-open"></i>
+                        </div>
+                        <span>Projet</span>
+                        <div class="mobile-link-arrow" aria-hidden="true">
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </div>
+                    </a>
+                    <a href="#services" class="mobile-nav-link">
+                        <div class="mobile-link-icon" aria-hidden="true">
+                            <i class="fa-solid fa-layer-group"></i>
+                        </div>
+                        <span>Services</span>
+                        <div class="mobile-link-arrow" aria-hidden="true">
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </div>
+                    </a>
+                </nav>
                 
-                <div class="mobile-social-compact">
-                    <a href="#" class="mobile-social-icon">
-                        <i class="fa-brands fa-dribbble"></i>
+                <div class="mobile-action-compact">
+                    <a href="mailto:rdauphinelys@mail.com" class="mobile-contact-btn">
+                        <div class="mobile-btn-icon" aria-hidden="true">
+                            <i class="fa-solid fa-paper-plane"></i>
+                            <div class="mobile-btn-glow"></div>
+                        </div>
+                        <span>Contact Rapide</span>
                     </a>
-                    <a href="#" class="mobile-social-icon">
-                        <i class="fa-brands fa-behance"></i>
-                    </a>
-                    <a href="#" class="mobile-social-icon">
-                        <i class="fa-brands fa-github"></i>
-                    </a>
+                    
+                    <div class="mobile-social-compact">
+                        <a href="#" class="mobile-social-icon" aria-label="Dribbble">
+                            <i class="fa-brands fa-dribbble"></i>
+                        </a>
+                        <a href="#" class="mobile-social-icon" aria-label="Behance">
+                            <i class="fa-brands fa-behance"></i>
+                        </a>
+                        <a href="#" class="mobile-social-icon" aria-label="GitHub">
+                            <i class="fa-brands fa-github"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    
-    <!-- OVERLAY MOBILE (CACHÉ PAR DÉFAUT) -->
-    <div class="mobile-overlay" id="mobileOverlay"></div>
-</nav>
-
+    </nav>
+    <script src="navbar.js"></script>
+</body>
+</html>
