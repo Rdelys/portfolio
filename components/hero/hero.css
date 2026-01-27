@@ -1,31 +1,85 @@
 /* ==========================
+   VARIABLES & RESET
+========================== */
+:root {
+    --primary: #00f0ff;
+    --secondary: #8c00ff;
+    --dark: #0b0f17;
+    --darker: #05070c;
+    --text: rgba(255,255,255,0.75);
+    --text-light: rgba(255,255,255,0.9);
+    --gradient: linear-gradient(135deg, var(--primary), var(--secondary));
+    --glass: rgba(255, 255, 255, 0.05);
+    --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ==========================
    HERO SECTION
 ========================== */
 .hero {
-    min-height: 60vh;
-    padding-top: 120px;
-
-    background:
-        radial-gradient(circle at top right, rgba(0,240,255,0.15), transparent 40%),
-        radial-gradient(circle at bottom left, rgba(140,0,255,0.15), transparent 40%),
-        linear-gradient(180deg, #0b0f17, #05070c);
-
-    color: white;
+    min-height: 100vh;
+    padding: clamp(80px, 10vw, 120px) 20px 40px;
+    position: relative;
+    overflow: hidden;
+    background: 
+        radial-gradient(circle at top 10% right 10%, rgba(0,240,255,0.2), transparent 40%),
+        radial-gradient(circle at bottom 20% left 20%, rgba(140,0,255,0.15), transparent 45%),
+        linear-gradient(180deg, var(--darker) 0%, var(--dark) 100%);
     display: flex;
     align-items: center;
+}
+
+/* Effets géométriques tech */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, 
+        transparent, 
+        var(--primary), 
+        var(--secondary), 
+        transparent
+    );
+}
+
+/* Grille de points tech */
+.hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(circle at 1px 1px, 
+        rgba(255,255,255,0.05) 1px, 
+        transparent 1px);
+    background-size: 40px 40px;
+    opacity: 0.3;
+    z-index: 0;
 }
 
 /* ==========================
    CONTAINER
 ========================== */
 .hero-container {
-    width: min(90%, 1200px);
-    margin: auto;
-
+    width: min(92%, 1280px);
+    margin: 0 auto;
     display: grid;
-    grid-template-columns: 1.1fr 0.9fr;
+    grid-template-columns: 1fr 1fr;
     align-items: center;
-    gap: 60px;
+    gap: clamp(40px, 6vw, 80px);
+    position: relative;
+    z-index: 2;
 }
 
 /* ==========================
@@ -35,154 +89,427 @@
     animation: fadeUp 1s ease forwards;
 }
 
+/* Badge tech */
 .hero-badge {
-    display: inline-block;
-    padding: 8px 16px;
-    border-radius: 999px;
-
-    background: rgba(0,240,255,0.15);
-    color: #00f0ff;
-
-    font-size: 12px;
-    letter-spacing: 2px;
-    margin-bottom: 24px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 20px 8px 16px;
+    border-radius: 50px;
+    background: rgba(0,240,255,0.08);
+    color: var(--primary);
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    margin-bottom: 28px;
+    border: 1px solid rgba(0,240,255,0.2);
+    backdrop-filter: blur(10px);
+    position: relative;
+    overflow: hidden;
 }
 
+.hero-badge::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+        transparent, 
+        rgba(0,240,255,0.2), 
+        transparent
+    );
+    animation: shine 3s infinite;
+}
+
+/* Titre principal */
 .hero-content h1 {
-    font-size: clamp(2.8rem, 5vw, 4.2rem);
-    line-height: 1.1;
-    margin-bottom: 24px;
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    line-height: 1.05;
+    margin-bottom: 28px;
+    font-weight: 800;
+    background: linear-gradient(to right, 
+        var(--text-light) 60%, 
+        var(--primary) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    position: relative;
 }
 
 .hero-content h1 span {
-    background: linear-gradient(90deg, #00f0ff, #8c00ff);
+    background: var(--gradient);
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+    position: relative;
 }
 
+/* Ligne sous le titre */
+.hero-content h1::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 80px;
+    height: 4px;
+    background: var(--gradient);
+    border-radius: 2px;
+}
+
+/* Description */
 .hero-content p {
     max-width: 520px;
-    font-size: 1.05rem;
+    font-size: clamp(1rem, 1.5vw, 1.1rem);
     line-height: 1.7;
-    color: rgba(255,255,255,0.75);
+    color: var(--text);
     margin-bottom: 40px;
+    position: relative;
+    padding-left: 20px;
+}
+
+.hero-content p::before {
+    content: '›';
+    position: absolute;
+    left: 0;
+    color: var(--primary);
+    font-size: 24px;
 }
 
 /* ==========================
-   BUTTONS
+   BOUTONS TECH
 ========================== */
 .hero-actions {
     display: flex;
-    gap: 20px;
+    flex-wrap: wrap;
+    gap: 16px;
+    align-items: center;
 }
 
 .btn {
-    padding: 14px 26px;
-    border-radius: 14px;
-    font-size: 14px;
-    letter-spacing: 2px;
+    padding: clamp(14px, 2vw, 16px) clamp(26px, 3vw, 32px);
+    border-radius: 12px;
+    font-size: clamp(13px, 1.2vw, 14px);
+    font-weight: 600;
+    letter-spacing: 1.2px;
     text-transform: uppercase;
     text-decoration: none;
-    transition: all 0.35s ease;
+    transition: var(--transition);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    border: none;
+    outline: none;
+}
+
+.btn::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.1);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.btn:hover::after {
+    width: 300px;
+    height: 300px;
 }
 
 .btn.primary {
-    background: linear-gradient(135deg, #00f0ff, #8c00ff);
-    color: #000;
+    background: var(--gradient);
+    color: var(--darker);
+    box-shadow: 
+        0 10px 30px rgba(0,240,255,0.3),
+        inset 0 1px 0 rgba(255,255,255,0.4);
 }
 
 .btn.primary:hover {
-    box-shadow: 0 0 30px rgba(0,240,255,0.6);
     transform: translateY(-3px);
+    box-shadow: 
+        0 15px 40px rgba(0,240,255,0.5),
+        inset 0 1px 0 rgba(255,255,255,0.6);
 }
 
 .btn.ghost {
-    border: 1px solid rgba(255,255,255,0.3);
+    background: var(--glass);
     color: white;
+    border: 1px solid rgba(255,255,255,0.2);
+    backdrop-filter: blur(10px);
 }
 
 .btn.ghost:hover {
     background: rgba(255,255,255,0.1);
+    border-color: var(--primary);
+    transform: translateY(-2px);
+}
+
+/* Icônes boutons */
+.btn.primary::before {
+    content: '▶';
+    font-size: 12px;
+}
+
+.btn.ghost::before {
+    content: '✉';
+    font-size: 14px;
 }
 
 /* ==========================
-   RIGHT VISUAL
+   VISUEL TECH
 ========================== */
 .hero-visual {
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
+    perspective: 1000px;
 }
 
-.hero-visual img {
+/* Carte tech */
+.tech-card {
+    position: relative;
     width: 100%;
-    max-width: 360px;
-    z-index: 2;
-    animation: float 6s ease-in-out infinite;
+    max-width: 380px;
+    aspect-ratio: 1;
+    border-radius: 24px;
+    backdrop-filter: blur(20px);
+    overflow: hidden;
+    transform-style: preserve-3d;
+    animation: cardFloat 8s ease-in-out infinite;
 }
 
-.visual-glow {
+/* Réseau de lignes */
+.tech-card::before {
+    content: '';
     position: absolute;
-    width: 300px;
-    height: 300px;
-    background: radial-gradient(circle, #00f0ff, transparent 60%);
-    filter: blur(80px);
-    z-index: 1;
+    inset: -2px;
+    background: 
+        linear-gradient(45deg, transparent 48%, var(--primary) 50%, transparent 52%) 0 0 / 40px 40px,
+        linear-gradient(-45deg, transparent 48%, rgba(140,0,255,0.3) 50%, transparent 52%) 0 0 / 40px 40px;
+    mask: linear-gradient(#000, #000) content-box, linear-gradient(#000, #000);
+    mask-composite: exclude;
+    border-radius: 24px;
+    padding: 2px;
+    animation: gridMove 20s linear infinite;
+}
+
+/* Image flottante */
+.hero-visual img {
+    width: 85%;
+    position: relative;
+    z-index: 3;
+    filter: drop-shadow(0 20px 40px rgba(0,0,0,0.5));
+    transition: transform 0.3s ease;
+}
+
+/* Éléments 3D flottants */
+.floating-element {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background: var(--gradient);
+    border-radius: 10px;
+    filter: blur(10px);
+    opacity: 0.6;
+    animation: floatElement 15s infinite linear;
+}
+
+.floating-element:nth-child(1) {
+    top: 20%;
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.floating-element:nth-child(2) {
+    top: 60%;
+    right: 15%;
+    animation-delay: -5s;
+    background: var(--secondary);
+}
+
+.floating-element:nth-child(3) {
+    bottom: 30%;
+    left: 20%;
+    animation-delay: -10s;
+    background: var(--primary);
 }
 
 /* ==========================
    ANIMATIONS
 ========================== */
-@keyframes float {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-20px);
-    }
-}
-
 @keyframes fadeUp {
     from {
         opacity: 0;
-        transform: translateY(40px);
+        transform: translateY(40px) scale(0.95);
     }
     to {
         opacity: 1;
-        transform: translateY(0);
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes cardFloat {
+    0%, 100% {
+        transform: translateY(0) rotateX(5deg) rotateY(-5deg);
+    }
+    50% {
+        transform: translateY(-20px) rotateX(3deg) rotateY(3deg);
+    }
+}
+
+@keyframes floatElement {
+    0%, 100% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+    25% {
+        transform: translate(30px, -30px) rotate(90deg);
+    }
+    50% {
+        transform: translate(0, -60px) rotate(180deg);
+    }
+    75% {
+        transform: translate(-30px, -30px) rotate(270deg);
+    }
+}
+
+@keyframes shine {
+    0% {
+        left: -100%;
+    }
+    20%, 100% {
+        left: 100%;
+    }
+}
+
+@keyframes gridMove {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 40px 40px;
     }
 }
 
 /* ==========================
-   RESPONSIVE
+   RESPONSIVE AVANCÉ
 ========================== */
-@media (max-width: 900px) {
+@media (max-width: 1024px) {
     .hero-container {
         grid-template-columns: 1fr;
         text-align: center;
+        gap: 60px;
     }
-
+    
+    .hero-content p {
+        margin: 0 auto 40px;
+        padding-left: 0;
+    }
+    
+    .hero-content p::before {
+        display: none;
+    }
+    
+    .hero-content h1::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
     .hero-actions {
         justify-content: center;
     }
-
-    .hero-content p {
-        margin: auto auto 40px;
-    }
-
+    
     .hero-visual {
-        margin-top: 60px;
+        order: -1;
+        margin-bottom: 20px;
     }
 }
 
-@media (max-width: 500px) {
-    .hero-visual img {
-        max-width: 260px;
+@media (max-width: 768px) {
+    .hero {
+        min-height: auto;
+        padding: 100px 20px 60px;
     }
-
+    
+    .tech-card {
+        max-width: 320px;
+    }
+    
+    .floating-element {
+        width: 30px;
+        height: 30px;
+    }
+    
+    .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
     .btn {
-        padding: 12px 20px;
-        font-size: 13px;
+        width: 100%;
+        max-width: 280px;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 2.2rem;
+    }
+    
+    .hero-badge {
+        font-size: 12px;
+        padding: 6px 16px 6px 12px;
+    }
+    
+    .tech-card {
+        max-width: 280px;
+    }
+    
+    .floating-element {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+/* Support tactile */
+@media (hover: none) {
+    .btn:hover {
+        transform: none;
+    }
+    
+    .btn::after {
+        display: none;
+    }
+}
+
+.pulse-dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background: var(--primary);
+    border-radius: 50%;
+    position: relative;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(0, 240, 255, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(0, 240, 255, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(0, 240, 255, 0);
     }
 }

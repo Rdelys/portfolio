@@ -1,32 +1,53 @@
 <link rel="stylesheet" href="components/hero/hero.css">
 
-<section class="hero">
+<section class="hero" aria-label="Hero section">
     <div class="hero-container">
 
-        <!-- LEFT CONTENT -->
+        <!-- CONTENU PRINCIPAL -->
         <div class="hero-content">
-            <span class="hero-badge">DEV ART AGENCY</span>
+            <span class="hero-badge" role="status">
+                <span class="pulse-dot"></span>
+                DEV ART AGENCY
+            </span>
 
             <h1>
-                We Build <span>Digital</span><br>
-                Experiences
+                Nous créons <span>Expériences</span><br>
+                <span class="gradient-text">Numériques</span>
             </h1>
 
             <p>
-                Creative development studio crafting modern,
-                high-performance and innovative web solutions.
+                Studio de développement créatif spécialisé dans la création 
+                de solutions web modernes, haute performance et innovantes 
+                pour l'ère numérique.
             </p>
 
             <div class="hero-actions">
-                <a href="#projet" class="btn primary">View Projects</a>
-                <a href="mailto:contact@mail.com" class="btn ghost">Contact Us</a>
+                <a href="#projects" class="btn primary" aria-label="Voir nos projets">
+                    <span>Voir Projets</span>
+                </a>
+                <a href="mailto:contact@devart.tech" class="btn ghost" aria-label="Nous contacter">
+                    <span>Contact</span>
+                </a>
             </div>
         </div>
 
-        <!-- RIGHT VISUAL -->
+        <!-- VISUEL TECH -->
         <div class="hero-visual">
-            <div class="visual-glow"></div>
-            <img src="./images/hero.png" alt="Developer">
+            <div class="tech-card" aria-hidden="true">
+                <!-- Éléments flottants -->
+                <div class="floating-element"></div>
+                <div class="floating-element"></div>
+                <div class="floating-element"></div>
+                
+                <!-- Image principale -->
+                <img 
+                    src="./images/hero.png" 
+                    alt="Interface de développement tech moderne"
+                    loading="lazy"
+                    width="400"
+                    height="400"
+                >
+            </div>
         </div>
 
     </div>
