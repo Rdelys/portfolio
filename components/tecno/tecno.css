@@ -1,4 +1,418 @@
-.tecno {
-    padding: 80px;
+/* ================= VARIABLES TECHNO ÉLÉGANTES ================= */
+:root {
+    /* Palette de couleurs douces mais vibrantes */
+    --tech-html: #FF6B35;
+    --tech-css: #00A8FF;
+    --tech-js: #F7DF1E;
+    --tech-laravel: #FF2D20;
+    --tech-n8n: #00D8A0;
+    --tech-automation: #6C5CE7;
+    --tech-wordpress: #21759B;
+    --tech-duda: #FF8C42;
+    --tech-hosting: #00D4FF;
+    --tech-creation: #FF4081;
+    
+    /* Couleurs neutres */
+    --tech-bg: rgba(15, 23, 42, 0.9);
+    --tech-border: rgba(255, 255, 255, 0.1);
+    --tech-shadow: rgba(0, 0, 0, 0.3);
+    
+    /* Animations */
+    --transition-smooth: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* ================= SECTION TECHNO SIMPLE ================= */
+.tecno-section {
+    padding: 100px 20px;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, 
+        rgba(15, 23, 42, 0.95) 0%, 
+        rgba(9, 14, 28, 0.98) 100%);
+    min-height: 100vh;
+}
+
+/* ================= EN-TÊTE MINIMALISTE ================= */
+.tecno-header {
     text-align: center;
+    margin-bottom: 80px;
+    position: relative;
+}
+
+.tecno-badge {
+    display: inline-block;
+    padding: 10px 24px;
+    background: rgba(108, 99, 255, 0.1);
+    border-left: 3px solid var(--devart-primary);
+    border-right: 3px solid var(--devart-primary);
+    color: var(--devart-primary);
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+    position: relative;
+    overflow: hidden;
+}
+
+.tecno-badge::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+        transparent, 
+        rgba(108, 99, 255, 0.2), 
+        transparent);
+    animation: slideShine 3s infinite;
+}
+
+.tecno-title {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    color: white;
+    margin-bottom: 20px;
+    font-weight: 700;
+    position: relative;
+    display: inline-block;
+}
+
+.tecno-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(90deg, 
+        var(--devart-primary), 
+        var(--devart-accent));
+    border-radius: 2px;
+}
+
+.tecno-subtitle {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.7);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* ================= GRILLE TECHNO FLOTTANTE ================= */
+.tecno-grid-float {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    max-width: 1400px;
+    margin: 0 auto;
+    position: relative;
+}
+
+/* Carte technologie flottante */
+.tech-float-card {
+    position: relative;
+    padding: 40px 30px;
+    background: var(--tech-bg);
+    border: 1px solid var(--tech-border);
+    border-radius: 20px;
+    text-align: center;
+    transition: var(--transition-smooth);
+    animation: floatCard 6s ease-in-out infinite;
+    animation-play-state: running;
+    will-change: transform;
+}
+
+.tech-float-card:hover {
+    animation-play-state: paused;
+    transform: translateY(-20px) !important;
+    border-color: currentColor;
+    box-shadow: 0 20px 40px var(--tech-shadow),
+                0 0 0 1px currentColor;
+}
+
+/* Icône avec effet de float */
+.tech-icon-float {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    font-size: 2.5rem;
+    color: white;
+    position: relative;
+    transition: var(--transition-smooth);
+}
+
+.tech-float-card:hover .tech-icon-float {
+    transform: scale(1.1) rotate(10deg);
+}
+
+.tech-icon-float::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    opacity: 0.3;
+    z-index: -1;
+    transition: var(--transition-smooth);
+}
+
+.tech-float-card:hover .tech-icon-float::before {
+    opacity: 0.8;
+    transform: scale(1.2);
+}
+
+/* Nom de la technologie */
+.tech-name-float {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: white;
+    transition: var(--transition-smooth);
+}
+
+.tech-float-card:hover .tech-name-float {
+    color: currentColor;
+}
+
+/* Description */
+.tech-desc-float {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* Indicateur de mouvement */
+.tech-movement {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: currentColor;
+    opacity: 0;
+    transform: scale(0);
+    transition: var(--transition-smooth);
+}
+
+.tech-float-card:hover .tech-movement {
+    opacity: 1;
+    transform: scale(1);
+    animation: pulseMovement 2s infinite;
+}
+
+/* Styles spécifiques pour chaque technologie */
+.tech-html .tech-icon-float { 
+    background: linear-gradient(135deg, var(--tech-html), #FF8C6B); 
+    color: white; 
+}
+.tech-html .tech-icon-float::before { background: var(--tech-html); }
+.tech-html .tech-float-card:hover { 
+    color: var(--tech-html);
+    box-shadow: 0 20px 40px rgba(255, 107, 53, 0.2),
+                0 0 0 1px var(--tech-html);
+}
+
+.tech-css .tech-icon-float { 
+    background: linear-gradient(135deg, var(--tech-css), #4DABF7); 
+    color: white; 
+}
+.tech-css .tech-icon-float::before { background: var(--tech-css); }
+.tech-css .tech-float-card:hover { 
+    color: var(--tech-css);
+    box-shadow: 0 20px 40px rgba(0, 168, 255, 0.2),
+                0 0 0 1px var(--tech-css);
+}
+
+.tech-js .tech-icon-float { 
+    background: linear-gradient(135deg, var(--tech-js), #FFF176); 
+    color: #333; 
+}
+.tech-js .tech-icon-float::before { background: var(--tech-js); }
+.tech-js .tech-float-card:hover { 
+    color: var(--tech-js);
+    box-shadow: 0 20px 40px rgba(247, 223, 30, 0.2),
+                0 0 0 1px var(--tech-js);
+}
+
+.tech-laravel .tech-icon-float { 
+    background: linear-gradient(135deg, var(--tech-laravel), #FF6652); 
+    color: white; 
+}
+.tech-laravel .tech-icon-float::before { background: var(--tech-laravel); }
+.tech-laravel .tech-float-card:hover { 
+    color: var(--tech-laravel);
+    box-shadow: 0 20px 40px rgba(255, 45, 32, 0.2),
+                0 0 0 1px var(--tech-laravel);
+}
+
+.tech-n8n .tech-icon-float { 
+    background: linear-gradient(135deg, var(--tech-n8n), #52D4A5); 
+    color: white; 
+}
+.tech-n8n .tech-icon-float::before { background: var(--tech-n8n); }
+.tech-n8n .tech-float-card:hover { 
+    color: var(--tech-n8n);
+    box-shadow: 0 20px 40px rgba(0, 216, 160, 0.2),
+                0 0 0 1px var(--tech-n8n);
+}
+
+.tech-automation .tech-icon-float { 
+    background: linear-gradient(135deg, var(--tech-automation), #8C7BFF); 
+    color: white; 
+}
+.tech-automation .tech-icon-float::before { background: var(--tech-automation); }
+.tech-automation .tech-float-card:hover { 
+    color: var(--tech-automation);
+    box-shadow: 0 20px 40px rgba(108, 92, 231, 0.2),
+                0 0 0 1px var(--tech-automation);
+}
+
+.tech-wordpress .tech-icon-float { 
+    background: linear-gradient(135deg, var(--tech-wordpress), #4A9BBF); 
+    color: white; 
+}
+.tech-wordpress .tech-icon-float::before { background: var(--tech-wordpress); }
+.tech-wordpress .tech-float-card:hover { 
+    color: var(--tech-wordpress);
+    box-shadow: 0 20px 40px rgba(33, 117, 155, 0.2),
+                0 0 0 1px var(--tech-wordpress);
+}
+
+.tech-duda .tech-icon-float { 
+    background: linear-gradient(135deg, var(--tech-duda), #FFA873); 
+    color: white; 
+}
+.tech-duda .tech-icon-float::before { background: var(--tech-duda); }
+.tech-duda .tech-float-card:hover { 
+    color: var(--tech-duda);
+    box-shadow: 0 20px 40px rgba(255, 140, 66, 0.2),
+                0 0 0 1px var(--tech-duda);
+}
+
+.tech-hosting .tech-icon-float { 
+    background: linear-gradient(135deg, var(--tech-hosting), #52E4FF); 
+    color: white; 
+}
+.tech-hosting .tech-icon-float::before { background: var(--tech-hosting); }
+.tech-hosting .tech-float-card:hover { 
+    color: var(--tech-hosting);
+    box-shadow: 0 20px 40px rgba(0, 212, 255, 0.2),
+                0 0 0 1px var(--tech-hosting);
+}
+
+.tech-creation .tech-icon-float { 
+    background: linear-gradient(135deg, var(--tech-creation), #FF73A1); 
+    color: white; 
+}
+.tech-creation .tech-icon-float::before { background: var(--tech-creation); }
+.tech-creation .tech-float-card:hover { 
+    color: var(--tech-creation);
+    box-shadow: 0 20px 40px rgba(255, 64, 129, 0.2),
+                0 0 0 1px var(--tech-creation);
+}
+
+/* ================= ANIMATIONS ================= */
+@keyframes floatCard {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    25% {
+        transform: translateY(-15px) rotate(1deg);
+    }
+    50% {
+        transform: translateY(-5px) rotate(-1deg);
+    }
+    75% {
+        transform: translateY(-10px) rotate(0.5deg);
+    }
+}
+
+@keyframes slideShine {
+    0% {
+        left: -100%;
+    }
+    20%, 100% {
+        left: 100%;
+    }
+}
+
+@keyframes pulseMovement {
+    0%, 100% {
+        opacity: 0.8;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+}
+
+@keyframes techAppear {
+    from {
+        opacity: 0;
+        transform: translateY(50px) scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 1200px) {
+    .tecno-grid-float {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 25px;
+    }
+}
+
+@media (max-width: 768px) {
+    .tecno-section {
+        padding: 60px 20px;
+    }
+    
+    .tecno-grid-float {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+    
+    .tech-float-card {
+        padding: 30px 20px;
+        animation-duration: 8s;
+    }
+    
+    .tech-icon-float {
+        width: 60px;
+        height: 60px;
+        font-size: 2rem;
+    }
+    
+    .tech-name-float {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .tecno-grid-float {
+        grid-template-columns: 1fr;
+        max-width: 300px;
+    }
+    
+    .tecno-title {
+        font-size: 2rem;
+    }
+    
+    .tecno-badge {
+        font-size: 12px;
+        padding: 8px 16px;
+    }
 }
